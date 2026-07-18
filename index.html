@@ -523,81 +523,40 @@
          appStoreUrl : App Store 링크 (없으면 "" — "출시 예정"으로 표시)
 
        언어별 객체에서 해당 언어가 없으면 en → ko 순으로 대체됩니다.
-       ※ 아래 3개는 예시입니다. 실제 앱 내용으로 교체하세요.
        ============================================================ */
     const APPS = [
       {
-        name: { en: "App Name 1", ko: "앱 이름 1", ja: "アプリ名 1", zh: "应用名称 1", ru: "Приложение 1", fil: "App 1" },
-        category: { en: "Category", ko: "카테고리", ja: "カテゴリー", zh: "分类", ru: "Категория", fil: "Kategorya" },
-        icon: "🚀",
-        iconBg: "linear-gradient(135deg, #4f6ef7, #8a5cf6)",
+        name: "부조금관리 by 마음장부",
+        category: {
+          ko: "라이프스타일 · 한국어 전용",
+          en: "Lifestyle · Korean only",
+          ja: "ライフスタイル · 韓国語専用",
+          zh: "生活方式 · 仅限韩语",
+          ru: "Стиль жизни · только корейский",
+          fil: "Lifestyle · Korean lamang"
+        },
+        icon: "💌",
+        iconBg: "linear-gradient(135deg, #e85d75, #f7a34f)",
         desc: {
-          en: "Write your app introduction here. Explain in 2–3 sentences what problem it solves and what makes it special.",
-          ko: "앱에 대한 소개를 여기에 적습니다. 어떤 문제를 해결해 주는지, 어떤 점이 특별한지 2~3문장으로 설명하세요.",
-          ja: "アプリの紹介をここに書きます。どんな課題を解決するのか、何が特別なのかを2〜3文で説明してください。",
-          zh: "在这里写应用介绍。用2~3句话说明它解决什么问题、有什么特别之处。",
-          ru: "Напишите здесь описание приложения. В 2–3 предложениях объясните, какую проблему оно решает и чем оно особенное.",
-          fil: "Isulat dito ang introduksyon ng app. Ipaliwanag sa 2–3 pangungusap kung anong problema ang nilulutas nito at ano ang espesyal dito."
+          ko: "결혼식·장례식·돌잔치 등 경조사에서 주고받은 부조금을 몇 번의 터치로 간편하게 기록하는 앱입니다. 이름·금액·날짜·메모만 입력하면 깔끔하게 정리되고, 검색과 통계로 주고받은 마음을 한눈에 확인할 수 있습니다. 소중한 인연을 잊지 않도록 마음장부가 대신 기억해 드립니다.",
+          en: "A Korean-language app for recording congratulatory and condolence money (bujogeum) exchanged at weddings, funerals, and family events. Enter just a name, amount, date, and memo — then find everything at a glance with search and statistics.",
+          ja: "結婚式・葬儀・お祝いの席などでやり取りしたご祝儀・香典を、数回のタップで簡単に記録できる韓国語専用アプリです。名前・金額・日付・メモを入力するだけで、検索や統計でひと目で確認できます。",
+          zh: "一款韩语应用，用于记录婚礼、葬礼等红白喜事中往来的礼金。只需输入姓名、金额、日期和备注，即可通过搜索和统计一目了然地管理人情往来。",
+          ru: "Приложение на корейском языке для учёта денежных подарков на свадьбах, похоронах и семейных событиях. Достаточно ввести имя, сумму, дату и заметку — поиск и статистика покажут всё с первого взгляда.",
+          fil: "Isang Korean-language app para itala ang mga perang regalo (bujogeum) sa kasal, libing, at mga okasyon ng pamilya. Ilagay lang ang pangalan, halaga, petsa, at memo — makikita agad ang lahat gamit ang search at statistics."
         },
         tags: {
-          en: ["Feature 1", "Feature 2", "Feature 3"],
-          ko: ["주요 기능 1", "주요 기능 2", "주요 기능 3"],
-          ja: ["主な機能 1", "主な機能 2", "主な機能 3"],
-          zh: ["主要功能 1", "主要功能 2", "主要功能 3"],
-          ru: ["Функция 1", "Функция 2", "Функция 3"],
-          fil: ["Feature 1", "Feature 2", "Feature 3"]
+          ko: ["경조사 기록", "간편 입력", "검색·통계"],
+          en: ["Event records", "Quick entry", "Search & stats"],
+          ja: ["慶弔記録", "簡単入力", "検索・統計"],
+          zh: ["人情记录", "快捷输入", "搜索·统计"],
+          ru: ["Учёт событий", "Быстрый ввод", "Поиск и статистика"],
+          fil: ["Event records", "Mabilis na entry", "Search at stats"]
         },
-        playUrl: "",
-        appStoreUrl: ""
-      },
-      {
-        name: { en: "App Name 2", ko: "앱 이름 2", ja: "アプリ名 2", zh: "应用名称 2", ru: "Приложение 2", fil: "App 2" },
-        category: { en: "Category", ko: "카테고리", ja: "カテゴリー", zh: "分类", ru: "Категория", fil: "Kategorya" },
-        icon: "🎯",
-        iconBg: "linear-gradient(135deg, #f76f4f, #f7b84f)",
-        desc: {
-          en: "Introduction for the second app. This will be replaced with real app information.",
-          ko: "두 번째 앱 소개입니다. 실제 앱 정보를 받으면 이 내용을 교체합니다.",
-          ja: "2つ目のアプリの紹介です。実際のアプリ情報に置き換えます。",
-          zh: "第二个应用的介绍。收到实际应用信息后将替换此内容。",
-          ru: "Описание второго приложения. Будет заменено на реальную информацию.",
-          fil: "Introduksyon ng pangalawang app. Papalitan ito ng totoong impormasyon ng app."
-        },
-        tags: {
-          en: ["Feature 1", "Feature 2"],
-          ko: ["주요 기능 1", "주요 기능 2"],
-          ja: ["主な機能 1", "主な機能 2"],
-          zh: ["主要功能 1", "主要功能 2"],
-          ru: ["Функция 1", "Функция 2"],
-          fil: ["Feature 1", "Feature 2"]
-        },
-        playUrl: "",
-        appStoreUrl: ""
-      },
-      {
-        name: { en: "App Name 3", ko: "앱 이름 3", ja: "アプリ名 3", zh: "应用名称 3", ru: "Приложение 3", fil: "App 3" },
-        category: { en: "Category", ko: "카테고리", ja: "カテゴリー", zh: "分类", ru: "Категория", fil: "Kategorya" },
-        icon: "🌙",
-        iconBg: "linear-gradient(135deg, #22b07d, #4fd1a5)",
-        desc: {
-          en: "Introduction for the third app. You can freely add or remove apps from this list.",
-          ko: "세 번째 앱 소개입니다. 앱 개수는 자유롭게 늘리거나 줄일 수 있습니다.",
-          ja: "3つ目のアプリの紹介です。アプリの数は自由に増減できます。",
-          zh: "第三个应用的介绍。应用数量可以自由增减。",
-          ru: "Описание третьего приложения. Количество приложений можно свободно менять.",
-          fil: "Introduksyon ng pangatlong app. Malaya kang magdagdag o magbawas ng mga app sa listahan."
-        },
-        tags: {
-          en: ["Feature 1", "Feature 2"],
-          ko: ["주요 기능 1", "주요 기능 2"],
-          ja: ["主な機能 1", "主な機能 2"],
-          zh: ["主要功能 1", "主要功能 2"],
-          ru: ["Функция 1", "Функция 2"],
-          fil: ["Feature 1", "Feature 2"]
-        },
-        playUrl: "",
-        appStoreUrl: ""
+        playUrl: "https://play.google.com/store/apps/details?id=com.bujo.myapp",
+        appStoreUrl: "https://apps.apple.com/kr/app/%EB%B6%80%EC%A1%B0%EA%B8%88%EA%B4%80%EB%A6%AC-by-%EB%A7%88%EC%9D%8C%EC%9E%A5%EB%B6%80/id6787304594"
       }
+      /* 새 앱을 추가하려면 위 항목을 복사해 쉼표(,)로 이어 붙이고 내용만 바꾸세요. */
     ];
 
     /* ============================================================
