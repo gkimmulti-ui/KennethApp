@@ -519,8 +519,8 @@
          iconBg    : 아이콘 배경 그라데이션 (이미지 사용 시 무시됨)
          desc      : 앱 소개 (문자열 또는 언어별 객체)
          tags      : 주요 기능 태그 (배열 또는 언어별 객체 {en:[...], ko:[...]})
-         playUrl   : Google Play 링크 (없으면 "" — "출시 예정"으로 표시)
-         appStoreUrl : App Store 링크 (없으면 "" — "출시 예정"으로 표시)
+         playUrl   : Google Play 링크 (""이면 "출시 예정", null이면 버튼 숨김)
+         appStoreUrl : App Store 링크 (""이면 "출시 예정", null이면 버튼 숨김 — 안드로이드 전용 앱은 null)
 
        언어별 객체에서 해당 언어가 없으면 en → ko 순으로 대체됩니다.
        ============================================================ */
@@ -555,6 +555,37 @@
         },
         playUrl: "https://play.google.com/store/apps/details?id=com.bujo.myapp",
         appStoreUrl: "https://apps.apple.com/kr/app/%EB%B6%80%EC%A1%B0%EA%B8%88%EA%B4%80%EB%A6%AC-by-%EB%A7%88%EC%9D%8C%EC%9E%A5%EB%B6%80/id6787304594"
+      },
+      {
+        name: "Snap Log",
+        category: {
+          ko: "사진 · 기록 · 안드로이드 전용",
+          en: "Photo & Journal · Android only",
+          ja: "写真 · 記録 · Android専用",
+          zh: "照片 · 记录 · 仅限Android",
+          ru: "Фото и журнал · только Android",
+          fil: "Photo at Journal · Android lamang"
+        },
+        icon: "images/snaplog-icon.svg",
+        iconBg: "linear-gradient(135deg, #0a1a3a, #1e3a8a)",
+        desc: {
+          ko: "셔터를 누르듯 가볍게, 사진 한 장으로 순간을 기록하는 앱입니다. 스냅처럼 빠르게 남기고 로그처럼 차곡차곡 쌓아, 지나간 순간들을 언제든 한눈에 돌아볼 수 있습니다.",
+          en: "Capture the moment as easily as pressing a shutter. Snap Log lets you record moments with a single photo and stack them like a log, so you can look back on them anytime at a glance.",
+          ja: "シャッターを押すように気軽に、写真1枚で瞬間を記録するアプリです。スナップのように素早く残し、ログのように積み重ねて、過ぎた瞬間をいつでもひと目で振り返れます。",
+          zh: "像按下快门一样轻松，用一张照片记录当下。像快照一样快速留存，像日志一样层层累积，随时一目了然地回顾过去的瞬间。",
+          ru: "Фиксируйте моменты так же легко, как нажимаете на затвор. Snap Log сохраняет мгновения одним фото и складывает их в журнал, чтобы вы могли вернуться к ним в любой момент.",
+          fil: "I-capture ang sandali nang kasindali ng pagpindot ng shutter. Sa Snap Log, maitatala mo ang mga sandali gamit ang isang litrato at maipon ang mga ito na parang log, para mabalikan anumang oras."
+        },
+        tags: {
+          ko: ["빠른 기록", "사진 로그", "타임라인"],
+          en: ["Quick capture", "Photo log", "Timeline"],
+          ja: ["クイック記録", "フォトログ", "タイムライン"],
+          zh: ["快速记录", "照片日志", "时间线"],
+          ru: ["Быстрая запись", "Фотожурнал", "Лента"],
+          fil: ["Mabilis na capture", "Photo log", "Timeline"]
+        },
+        playUrl: "https://play.google.com/store/apps/details?id=com.snaplog.myapp",
+        appStoreUrl: null
       }
       /* 새 앱을 추가하려면 위 항목을 복사해 쉼표(,)로 이어 붙이고 내용만 바꾸세요. */
     ];
@@ -590,6 +621,7 @@
     const APPLE_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
 
     function storeButton(url, svg, label) {
+      if (url === null) return "";
       if (url) {
         return '<a class="store-btn" href="' + url + '" target="_blank" rel="noopener">' + svg + '<span>' + label + '</span></a>';
       }
