@@ -34,13 +34,19 @@
 ```
 
 - 스토어 링크를 빈 문자열(`""`)로 두면 버튼이 **"출시 예정"** 으로 회색 표시됩니다.
+- 스토어 링크에 `null`을 넣으면 그 버튼이 아예 표시되지 않습니다 (예: 안드로이드 전용 앱의 `appStoreUrl: null`).
 - 앱 개수는 자유롭게 늘리거나 줄일 수 있습니다.
-- 현재 들어 있는 3개 앱은 예시이므로 실제 앱 정보로 교체하세요.
+
+## app-ads.txt
+
+AdMob 광고 인증용 `app-ads.txt` 파일이 저장소 루트에 있습니다.
+
+- 배포 주소: `https://gkimmulti-ui.github.io/KennethApp/app-ads.txt`
+- **주의**: AdMob 크롤러는 IAB 규격에 따라 **도메인 루트**(`https://gkimmulti-ui.github.io/app-ads.txt`)만 확인합니다. 하위 경로에 있는 파일은 인식하지 못하므로, 실제 인증을 받으려면 `gkimmulti-ui.github.io` 저장소(사용자 사이트)를 따로 만들어 그곳에 같은 파일을 올리거나 커스텀 도메인을 연결해야 합니다.
 
 ## 배포
 
-정적 HTML 한 파일이라 GitHub Pages로 바로 배포할 수 있습니다.
+`claude/app-promo-homepage-u7x4ks` 브랜치에 푸시하면 GitHub Actions가 자동으로 `gh-pages` 브랜치에 배포합니다 (`.github/workflows/deploy-pages.yml`).
 
-1. GitHub 저장소 → **Settings** → **Pages**
-2. Source를 배포할 브랜치로 설정하고 저장
-3. `https://<사용자명>.github.io/KennethApp/` 에서 확인
+- 공개 주소: `https://gkimmulti-ui.github.io/KennethApp/`
+- Pages 설정: 저장소 → **Settings** → **Pages** → Source `Deploy from a branch` → `gh-pages` / `(root)`
