@@ -39,6 +39,18 @@
 - `note`는 넣지 않으면 표시되지 않습니다. 고지사항·면책 문구용입니다.
 - 앱 개수는 자유롭게 늘리거나 줄일 수 있습니다.
 
+### 개발 중인 앱
+
+아직 출시 전인 앱은 `status: "dev"` 만 넣으면 스토어 버튼 대신 **"개발중"** 배지가 표시됩니다.
+
+```js
+{ name: "My App", icon: "images/myapp-icon.png", desc: DEV_DESC, status: "dev" }
+```
+
+- `DEV_DESC`는 개발 중인 앱들이 공통으로 쓰는 안내 문구입니다 (6개 언어 포함).
+- `category`와 `tags`는 생략할 수 있습니다.
+- 출시되면 `status` 줄을 지우고 `playUrl` / `appStoreUrl` 을 채워주세요.
+
 ## app-ads.txt
 
 AdMob 광고 인증용 `app-ads.txt` 파일이 저장소 루트에 있습니다.
