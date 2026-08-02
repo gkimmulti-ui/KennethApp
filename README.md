@@ -28,13 +28,15 @@
   iconBg: "linear-gradient(135deg, #4f6ef7, #8a5cf6)",  // 아이콘 배경색 (이미지면 무시)
   desc: { en: "2–3 sentence intro", ko: "앱 소개 2~3문장" },
   tags: { en: ["Feature 1"], ko: ["기능 1"] },            // 주요 기능 태그
-  playUrl: "https://play.google.com/store/apps/details?id=...",  // 없으면 "" → "출시 예정" 표시
-  appStoreUrl: "https://apps.apple.com/kr/app/.../id..."          // 없으면 "" → "출시 예정" 표시
+  note: { en: "Disclaimer", ko: "고지사항" },             // (선택) 카드 하단 작은 회색 글씨
+  playUrl: "https://play.google.com/store/apps/details?id=...",
+  appStoreUrl: "https://apps.apple.com/kr/app/.../id..."
 }
 ```
 
-- 스토어 링크를 빈 문자열(`""`)로 두면 버튼이 **"출시 예정"** 으로 회색 표시됩니다.
+- 스토어 링크를 빈 문자열(`""`)로 두면 버튼이 **"출시 예정"** 으로 회색 표시됩니다 (출시 준비 중인 경우).
 - 스토어 링크에 `null`을 넣으면 그 버튼이 아예 표시되지 않습니다 (예: 안드로이드 전용 앱의 `appStoreUrl: null`).
+- `note`는 넣지 않으면 표시되지 않습니다. 고지사항·면책 문구용입니다.
 - 앱 개수는 자유롭게 늘리거나 줄일 수 있습니다.
 
 ## app-ads.txt
