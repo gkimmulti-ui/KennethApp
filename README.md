@@ -46,7 +46,8 @@
 | flag | 필터 이름 | 의미 |
 |---|---|---|
 | `both` | 안드로이드/아이폰 사용가능 | Google Play와 App Store 모두 출시 |
-| `google` | 안드로이드 전용 | 현재 Google Play에서만 다운로드 가능 |
+| `ios-soon` | 아이폰 출시 예정 | 현재 Google Play만, iOS 준비 중 |
+| `google` | 안드로이드 전용 | Google Play 전용 (iOS 계획 없음) |
 | `korean` | 한국어 전용 | 한국어만 지원하는 앱 |
 | `dev` | 개발 진행중 | 아직 출시 전 |
 
