@@ -69,6 +69,34 @@ flags: ["google", "korean"]   // 안드로이드 전용 + 한국어 전용 두 �
 - `category`와 `tags`는 생략할 수 있습니다.
 - 출시되면 `status` 줄을 지우고 `playUrl` / `appStoreUrl` 을 채워주세요.
 
+## 검색 최적화 (SEO)
+
+### ⚠️ APPS 목록을 고친 뒤에는 반드시 실행하세요
+
+```bash
+node build-seo.js
+```
+
+앱 카드는 JavaScript가 그려내는데, **네이버 크롤러와 AI 검색 봇(GPTBot·PerplexityBot·ClaudeBot 등)은 JavaScript를 실행하지 않습니다.** 이 스크립트는 `APPS` 데이터를 읽어 정적 HTML을 `index.html` 안에 미리 심어, JS 없이도 앱 정보가 보이게 합니다. 함께 `sitemap.xml`도 새로 만듭니다.
+
+실행하지 않고 푸시하면 배포 워크플로가 실패하며 알려줍니다. 여러 번 실행해도 결과는 같습니다.
+
+### 들어 있는 것
+
+- **정적 앱 카드** — JS 없이도 앱 10개의 이름·설명·태그가 HTML에 그대로 들어 있습니다
+- **구조화 데이터(JSON-LD)** — 구글 리치 결과와 AI 검색이 읽는 부분. `Organization` + 앱별 `SoftwareApplication` 목록
+- **Open Graph / Twitter Card** — 카카오톡·페이스북 등에서 공유할 때 뜨는 미리보기 (`images/og-image.png`)
+- **hreflang** — 6개 언어별 주소(`?lang=ko` 등)를 검색엔진에 알려줍니다
+- **canonical** — 언어에 맞춰 자동으로 갱신됩니다
+- **robots.txt / sitemap.xml** — AI 검색 봇과 네이버 로봇(Yeti) 허용
+
+### 남은 작업 (직접 하셔야 합니다)
+
+1. **네이버 서치어드바이저** — https://searchadvisor.naver.com 에서 사이트 등록 → 소유확인 코드 발급 → `index.html` 상단 주석 안의 `naver-site-verification` 줄을 주석 밖으로 꺼내고 코드를 넣으세요 → 사이트맵 제출
+2. **구글 서치콘솔** — https://search.google.com/search-console 에서 같은 방식으로 `google-site-verification` 처리 후 `sitemap.xml` 제출
+
+두 곳 모두 등록해야 검색 결과에 실제로 노출되기 시작합니다.
+
 ## app-ads.txt
 
 AdMob 광고 인증용 `app-ads.txt` 파일이 저장소 루트에 있습니다.
