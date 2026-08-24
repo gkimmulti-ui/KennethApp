@@ -18,6 +18,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # APPS 목록을 고치고 build-seo.js 를 다시 돌리지 않으면
+      # 검색엔진이 옛 앱 정보를 보게 되므로 여기서 걸러냅니다.
+      - name: SEO 정적 HTML 최신 여부 확인
+        run: |
+          node build-seo.js
+          if ! git diff --quiet -- index.html sitemap.xml; then
+            echo "::error::index.html 의 정적 SEO 내용이 APPS 목록과 다릅니다. 로컬에서 'node build-seo.js' 를 실행한 뒤 커밋하세요."
+            git --no-pager diff --stat -- index.html sitemap.xml
+            exit 1
+          fi
+          echo "SEO 정적 HTML 최신 상태입니다."
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
